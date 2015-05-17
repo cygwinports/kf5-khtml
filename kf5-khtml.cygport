@@ -1,0 +1,38 @@
+inherit kf5
+
+NAME="kf5-khtml"
+VERSION=5.10.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="KDE 5 HTML rendering library"
+DESCRIPTION="KHTML is a web rendering engine, based on the KParts technology
+and using KJS for JavaScript support."
+
+SRC_URI="mirror://kde/stable/frameworks/${VERSION%\.*}/portingAids/${NAME#kf5-}-${VERSION}.tar.xz"
+
+PKG_NAMES="libKF5KHtml5 libKF5KHtml-devel"
+libKF5KHtml5_CONTENTS="
+	etc/
+	usr/bin/cygKF5KHtml-5.dll
+	${QT5_PLUGINSDIR#/}/kf5/parts/
+	usr/share/doc/
+	usr/share/kf5/
+	usr/share/kservices5/
+	usr/share/kxmlgui5/khtml/
+	usr/share/locale/
+"
+libKF5KHtml_devel_REQUIRES="libKF5Archive-devel libKF5Bookmarks-devel libKF5GlobalAccel-devel libKF5I18n-devel libKF5IconThemes-devel libKF5JS-devel libKF5KIO-devel libKF5Notifications-devel libKF5Parts-devel libKF5Sonnet-devel libKF5Wallet-devel libKF5WidgetsAddons-devel libKF5WindowSystem-devel libQt5Core-devel libphonon4qt5-devel libQt5Gui-devel libQt5X11Extras-devel"
+libKF5KHtml_devel_CONTENTS="
+	usr/include/KF5/KHtml/
+	usr/include/KF5/khtml_version.h
+	usr/lib/cmake/KF5KHtml/
+	${QT5_MKSPECSDIR#/}/modules/qt_KHtml.pri
+	usr/lib/libKF5KHtml.dll.a
+"
+
+src_install() {
+	cd ${B}
+	kf5_install
+
+	make_etc_defaults /etc/xdg/khtmlrc
+}
