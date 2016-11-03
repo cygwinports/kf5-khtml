@@ -1,7 +1,7 @@
 inherit kf5
 
 NAME="kf5-khtml"
-VERSION=5.12.0
+VERSION=5.27.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="KDE 5 HTML rendering library"
@@ -18,7 +18,6 @@ libKF5KHtml5_CONTENTS="
 	usr/share/doc/
 	usr/share/kf5/
 	usr/share/kservices5/
-	usr/share/kxmlgui5/khtml/
 	usr/share/locale/
 "
 libKF5KHtml_devel_REQUIRES="libKF5Archive-devel libKF5Bookmarks-devel libKF5GlobalAccel-devel libKF5I18n-devel libKF5IconThemes-devel libKF5JS-devel libKF5KIO-devel libKF5Notifications-devel libKF5Parts-devel libKF5Sonnet-devel libKF5Wallet-devel libKF5WidgetsAddons-devel libKF5WindowSystem-devel libQt5Core-devel libphonon4qt5-devel libQt5Gui-devel libQt5X11Extras-devel"
